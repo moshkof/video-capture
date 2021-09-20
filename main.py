@@ -1,21 +1,24 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import cv2
-#print("Before URL")
-cap = cv2.VideoCapture('http://admin:P12345i@192.168.18.41/:554', cv2.CAP_FFMPEG)
-# print(cv2.VideoCapture())
-# print(cv2.getBuildInformation())
-#print("After URL")
 
-while True:
 
-    #print('About to start the Read command')
-    ret, frame = cap.read()
-    #print('About to show frame of Video.')
-    cv2.namedWindow("output")
-    size = cv2.resizeWindow("output", (900, 540)) 
-    cv2.imshow("output", cv2.COLOR_BayerGR2RGBA)
-    #print('Running..')
+def run_analysis():
+    # cap = cv2.VideoCapture('https://camera.rt.ru/66ca723a-c024-4877-b279-f7db9189931d')
+    cap = cv2.VideoCapture()
+    cap.open('rtsp://admin:P123456i@192.168.18.21')
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+    if not cap.isOpened():
+        print("Error opening video")
 
-    
+    while(cap.isOpened()):
+        status, frame = cap.read()
+        if status:
+            cv2.imshow('перекресток маршала Говорова и Балтийская', frame)
+            # do_stuff_with_frame(frame)
+        key = cv2.waitKey(25)
+        if key == ord('q'):
+            break
+
+
+run_analysis()

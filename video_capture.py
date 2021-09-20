@@ -10,7 +10,7 @@ def run_analysis():
     # cap.open('rtsp://admin:P123456i@192.168.18.89:554')
     cap.open('http://94.72.19.56/mjpg/video.mjpg')
     # cap.open('https://youtu.be/NyygAOnP5nY')
-    print(cap.isOpened())
+    # print(cap.isOpened())
     if not cap.isOpened():
         print("Error opening video")
 

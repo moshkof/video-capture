@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import cv2
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 
 def run_analysis():
@@ -23,4 +22,4 @@ def run_analysis():
             break
 
 
-run_analysis()
+
